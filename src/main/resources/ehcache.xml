@@ -38,3 +38,15 @@
             <offheap unit="MB">10</offheap>
         </resources>
     </cache>
+    <cache alias="pastStorycache">
+        <key-type>org.springframework.cache.interceptor.SimpleKey</key-type>
+        <value-type>java.util.List</value-type>
+        <expiry>
+            <ttl unit="minutes">15</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">10</heap>
+            <offheap unit="MB">10</offheap>
+        </resources>
+    </cache>
+</config>

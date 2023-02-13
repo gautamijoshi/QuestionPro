@@ -16,7 +16,7 @@ public class Item {
     private boolean isDeleted;
 
     @Enumerated(EnumType.STRING)
-    private com.example.questionpro.model.type type;
+    private TYPE type;
 
     @ManyToOne
     @JoinColumn(name = "by_user")
@@ -24,15 +24,6 @@ public class Item {
 
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date time;
-    // long unixTimestamp = new Date().getTime()/1000L;
-
-    /* Calendar cal = Calendar.getInstance();
-         cal.set(Calendar.DAY_OF_MONTH, 20);
-         cal.set(Calendar.MONTH, 8);
-         cal.set(Calendar.YEAR, 2022);
-
-     Date givenDate = cal.getTime();
-     long unixTimestamp = givenDate.toInstant().getEpochSecond();*/
     @Column(columnDefinition = "VARCHAR(255)")
     private String text;
     private boolean isDead;
@@ -62,7 +53,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(Integer id, boolean isDeleted, com.example.questionpro.model.type type, User byUser, Date time, String text, boolean isDead, Item parent, long poll, Set<Item> kids, String url, long score, String title, Set<Item> parts, int descendants) {
+    public Item(Integer id, boolean isDeleted, TYPE type, User byUser, Date time, String text, boolean isDead, Item parent, long poll, Set<Item> kids, String url, long score, String title, Set<Item> parts, int descendants) {
         this.id = id;
         this.isDeleted = isDeleted;
         this.type = type;
@@ -96,11 +87,11 @@ public class Item {
         isDeleted = deleted;
     }
 
-    public com.example.questionpro.model.type getType() {
+    public TYPE getType() {
         return type;
     }
 
-    public void setType(com.example.questionpro.model.type type) {
+    public void setType(TYPE type) {
         this.type = type;
     }
 
@@ -201,8 +192,8 @@ public class Item {
     }
 
 
-    public int getKidsCount(){
+    public int getKidsCount() {
 
-       return this.kids.size();
+        return this.kids.size();
     }
 }
